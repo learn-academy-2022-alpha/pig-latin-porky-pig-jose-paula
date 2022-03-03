@@ -33,7 +33,47 @@ class App extends Component{
       })
       console.log("vowelsArray:", vowelsArray)
 
+
+
+let vowel1 = vowelsArray[0]
+if(currentWord[0] === vowel1){
+  return `${currentWord}way`
+}
+console.log(vowel1);
+
       // your code here!
+
+      // as developers, we have to understand pigLatin as its own language. This will set us up.
+
+      // vowels a e i o u
+      // consanant is everything but vowel
+
+      // quick reminder the letter Y can be both
+
+//        WAY-ING
+      // the first letter of the word is a vowel ADD WAY
+      // example: apple -> apple(way)
+
+//        SHIFTING
+      // if the first letter of the word is not a vowel. You will shift each letter in the front to the back till we have a vowel at the front
+      // example: banana -> ananab(ay)
+      //          grape -> apegr(ay )
+
+
+//        Y YOU LIKE THIS
+      // if the first letter of the word starts with a y, would consider it a vowel
+      // example: yarn-> yarnay
+                // cry -> ycray (if the first letter is not a Y, start shifting)
+
+//              QU
+      // if the word consists of the letters "qu" then start shift till the end until you find the first vowel
+      // ex:queen ---> eenquay
+      //  ex:squeal ---> ealsquay
+
+      // PseudoCoding
+      // OBJECTIVE:
+      // Goal is to be able to create a code that will take a word
+
 
       // Remember: console.log is your friend :)
 
