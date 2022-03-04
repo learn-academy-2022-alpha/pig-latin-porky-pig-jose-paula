@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import butcherPig from './assets/butcherPig.jpeg'
+import pig from './assets/pig.jpeg'
 
 class App extends Component{
   constructor(props){
@@ -33,13 +34,16 @@ class App extends Component{
       })
       console.log("vowelsArray:", vowelsArray)
 
+      let vowelOne = vowelsArray[0]
+
+      if(currentWord[0] === vowelOne){
+        return `${currentWord}way`
+      } else if (currentWord.includes(vowelOne)) {
+        let letter = currentWord.indexOf(vowelOne)
+        return currentWord.substring(letter) + currentWord.slice(0, letter) + "ay"
+      }
 
 
-let vowel1 = vowelsArray[0]
-if(currentWord[0] === vowel1){
-  return `${currentWord}way`
-}
-console.log(vowel1);
 
       // your code here!
 
@@ -72,7 +76,12 @@ console.log(vowel1);
 
       // PseudoCoding
       // OBJECTIVE:
-      // Goal is to be able to create a code that will take a word
+      // if a word begins, with a vowel, return the word + "way"
+      // else if word does not beging with a vowel, iterate through until first vowel is found, use shift to remove those values and use push to push it to the end of the array
+      // else if word consists of "qu" shift those letters and push it to the end of the array until first vowel is found
+      // else if word begins with a y, add "ay" to the end of the word
+      // else if word does not start with a "y", shift and push letters to the back of the array until the first "y"
+
 
 
       // Remember: console.log is your friend :)
@@ -120,7 +129,7 @@ console.log(vowel1);
       <>
         <h1>Pig Latin Translator</h1>
         <img
-          src={butcherPig}
+          src={pig}
           alt="pig with butcher cut names in pig latin"
           className="butcherPig"
         />
@@ -139,7 +148,7 @@ console.log(vowel1);
           <button onClick={this.restartGame}>Clear</button>
         </div>
         <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+        <footer>Coded by Jose & Paula</footer>
       </>
     )
   }
