@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import butcherPig from './assets/butcherPig.jpeg'
+import pig from './assets/pig.jpeg'
 
 class App extends Component{
   constructor(props){
@@ -33,7 +34,55 @@ class App extends Component{
       })
       console.log("vowelsArray:", vowelsArray)
 
+      let vowelOne = vowelsArray[0]
+
+      if(currentWord[0] === vowelOne){
+        return `${currentWord}way`
+      } else if (currentWord.includes(vowelOne)) {
+        let letter = currentWord.indexOf(vowelOne)
+        return currentWord.substring(letter) + currentWord.slice(0, letter) + "ay"
+      }
+
+
+
       // your code here!
+
+      // as developers, we have to understand pigLatin as its own language. This will set us up.
+
+      // vowels a e i o u
+      // consanant is everything but vowel
+
+      // quick reminder the letter Y can be both
+
+//        WAY-ING
+      // the first letter of the word is a vowel ADD WAY
+      // example: apple -> apple(way)
+
+//        SHIFTING
+      // if the first letter of the word is not a vowel. You will shift each letter in the front to the back till we have a vowel at the front
+      // example: banana -> ananab(ay)
+      //          grape -> apegr(ay )
+
+
+//        Y YOU LIKE THIS
+      // if the first letter of the word starts with a y, would consider it a vowel
+      // example: yarn-> yarnay
+                // cry -> ycray (if the first letter is not a Y, start shifting)
+
+//              QU
+      // if the word consists of the letters "qu" then start shift till the end until you find the first vowel
+      // ex:queen ---> eenquay
+      //  ex:squeal ---> ealsquay
+
+      // PseudoCoding
+      // OBJECTIVE:
+      // if a word begins, with a vowel, return the word + "way"
+      // else if word does not beging with a vowel, iterate through until first vowel is found, use shift to remove those values and use push to push it to the end of the array
+      // else if word consists of "qu" shift those letters and push it to the end of the array until first vowel is found
+      // else if word begins with a y, add "ay" to the end of the word
+      // else if word does not start with a "y", shift and push letters to the back of the array until the first "y"
+
+
 
       // Remember: console.log is your friend :)
 
@@ -80,7 +129,7 @@ class App extends Component{
       <>
         <h1>Pig Latin Translator</h1>
         <img
-          src={butcherPig}
+          src={pig}
           alt="pig with butcher cut names in pig latin"
           className="butcherPig"
         />
@@ -99,7 +148,7 @@ class App extends Component{
           <button onClick={this.restartGame}>Clear</button>
         </div>
         <p>{this.state.phraseTranslated}</p>
-        <footer>Coded by ~your name here~</footer>
+        <footer>Coded by Jose & Paula</footer>
       </>
     )
   }
